@@ -10,6 +10,16 @@ This project is a University Course Management System designed to streamline the
 
 - **Data Initialization:** Automate the process of populating the course database with initial data using the DataInitializer class.
 
+  ## Technologies Used
+
+- **Spring Boot**: Facilitates rapid application development with its pre-built templates and features.
+
+- **Hibernate**: Provides seamless object-relational mapping (ORM) for database operations.
+
+- **MySQL**: A robust and scalable relational database management system.
+
+- **HTML/CSS/JavaScript**: For front-end development and user interface design.
+
 ## Upcoming Features
 
 - **Grading and Evaluation:** Enhance the grading system for course assessments, introducing automated grading, detailed assessment criteria, and tools for providing valuable feedback.
