@@ -10,7 +10,7 @@ This project is a University Course Management System designed to streamline the
 
 - **Data Initialization:** Automate the process of populating the course database with initial data using the DataInitializer class.
 
-  ## Technologies Used
+## Technologies Used
 
 - **Spring Boot**: Facilitates rapid application development with its pre-built templates and features.
 
