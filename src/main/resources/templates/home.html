@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultra.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+          rel="stylesheet" />
+    <title>Uni Web</title>
+
+
+</head>
+<body layout:fragment="body">
+    
+    <!--    Showcase-->
+    <section class=" text-emphasis-secondary p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between ">
+                <div class="text-center">
+                    <h1>Welcome!</h1>
+                    <p class="lead my-4 text-center color bold">
+                        Everything you need is right here! </p>
+                    
+                    <!-- Modal button -->
+                    <button
+                            th:if="${!#authorization.expression('isAuthenticated()')}"
+                            class="btn btn-primary btn-lg"
+                            data-bs-toggle="modal"
+                            data-bs-target="#loginModal">Sign In/SignUp
+                    </button>
+                    
+                    <!-- Login Modal -->
+                    <div class="modal fade"
+                         id="loginModal"
+                         tabindex="-1"
+                         aria-labelledby="loginModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header bg-info">
+                                    <h5 class="modal-title text-light"
+                                        id="loginModalLabel">Sign In</h5>
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <!-- Replace the content with the login form fragment -->
+                                <!--                                <div th:include="fragments/login-form :: login-form-content"></div>-->
+                            
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                </div>
+                
+                
+                <img class="img-fluid w-50 d-none d-sm-block"
+                     th:src="@{img/collage.webp}"
+                     alt="showcase">
+            
+            </div>
+        </div>
+    </section>
+    
+    <!--        Instructors-->
+    <section id="instructors"
+             class="p-5">
+        <div class="container">
+            <h2 class="text-center">Uni Web Links</h2>
+            <p class="lead text-center  mb-5">
+                Join us in the media!
+            </p>
+            <div class="row g-4 mx-auto justify-content-center">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Telegram</h4>
+                            <a target="_blank"
+                               href="https://t.me/OpenuCS"><i class="bi bi-telegram mx-1"
+                                                              style="font-size: 2em;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Mega</h4>
+                            <a target="_blank"
+                               href="https://mega.nz/folder/0Sg0iD4B#0OPF1JJgFjtYoJuStlsCtA">
+                                <img th:src="@{img/mega.png}"
+                                     alt="Mega Icon"
+                                     style="width: 2em; height: 2em;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title mb-3">Facebook</h4>
+                            <a target="_blank"
+                               href="https://www.facebook.com/groups/cs.students.openu/"><i class="bi bi-facebook mx-1"
+                                                                                            style="font-size: 2em;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--    Questions-->
+    <section id="questions"
+             class="p-5">
+        
+        <div class="container">
+            <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+            
+            <div class="accordion accordion-flush "
+                 id="question">
+                <!-- Item 1-->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#question-one">
+                            Where are you located?
+                        </button>
+                    </h2>
+                    <div id="question-one"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque commodi
+                            corporis
+                            earum, eos excepturi illum ipsam ipsum iste iure iusto labore maxime minus molestiae
+                            nostrum
+                            obcaecati optio quia, quo? Illum, iste odio! Aliquam debitis earum, minus
+                            perferendis
+                            quisquam ratione rem repellat repellendus similique soluta ut voluptate voluptatem
+                            voluptates voluptatum?
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2-->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#question-two">
+                            What do I need to know
+                        </button>
+                    </h2>
+                    <div id="question-two"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque commodi
+                            corporis
+                            earum, eos excepturi illum ipsam ipsum iste iure iusto labore maxime minus molestiae
+                            nostrum
+                            obcaecati optio quia, quo? Illum, iste odio! Aliquam debitis earum, minus
+                            perferendis
+                            quisquam ratione rem repellat repellendus similique soluta ut voluptate voluptatem
+                            voluptates voluptatum?
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3-->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#question-three">
+                            How much does it cost?
+                        </button>
+                    </h2>
+                    <div id="question-three"
+                         class="accordion-collapse collapse"
+                         data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores atque commodi
+                            corporis
+                            earum, eos excepturi illum ipsam ipsum iste iure iusto labore maxime minus molestiae
+                            nostrum
+                            obcaecati optio quia, quo? Illum, iste odio! Aliquam debitis earum, minus
+                            perferendis
+                            quisquam ratione rem repellat repellendus similique soluta ut voluptate voluptatem
+                            voluptates voluptatum?
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    </section>
+    
+    <!-- Modal -->
+    <div class="modal fade"
+         id="enroll"
+         tabindex="-1"
+         aria-labelledby="enrollModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5"
+                        id="enrollModalLabel">Modal title</h1>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">Fill out this form</p>
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="first-name"
+                                   class="col-form-label">
+                                First Name
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="first-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="last-name"
+                                   class="col-form-label">
+                                Last Name
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="last-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email"
+                                   class="col-form-label">
+                                Email
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone"
+                                   class="col-form-label">
+                                Phone
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="phone">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal">Close
+                    </button>
+                    <button type="button"
+                            class="btn btn-primary">Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

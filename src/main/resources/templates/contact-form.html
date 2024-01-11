@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <title>Contact</title>
+
+</head>
+<body layout:fragment="body"
+      class="d-flex flex-column h-100">
+    
+    
+    <section class="p-5 p-lg-0 pt-lg-5 ">
+        <div class="contact-container"
+             dir="rtl">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h2 class="card-title text-center">Contact Us</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-4">or send us mail
+                                            to:<a href="mailto:hilaly55@gmail.com">Hilaly55@gmail.com</a>
+                            </p>
+                            <form th:action="@{/contact}"
+                                  id="contactForm"
+                                  method="POST"
+                                  enctype="multipart/form-data">
+                                <div class="mb-3">
+                                    <label for="fullName"
+                                           class="form-label">Full name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                        <input type="text"
+                                               class="form-control form-control-sm"
+                                               id="fullName"
+                                               name="fullName"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email"
+                                           class="form-label">Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                        <input type="email"
+                                               class="form-control form-control-sm"
+                                               id="email"
+                                               name="email"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject"
+                                           class="form-label">Subject</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-card-text"></i></span>
+                                        <input type="text"
+                                               class="form-control form-control-sm"
+                                               id="subject"
+                                               name="subject"
+                                               required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="content"
+                                           class="form-label">Massage</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="bi bi-textarea-resize"></i></span>
+                                        <textarea class="form-control form-control-sm"
+                                                  id="content"
+                                                  name="content"
+                                                  rows="5"
+                                                  required>
+                                            
+                                        </textarea>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label
+                                            class="form-label">Attach File</label>
+                                    <div class="input-group">
+                                        <input class="form-control"
+                                               type="file"
+                                               name="attachment" />
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="mb-3 text-center">
+                                    <button type="submit"
+                                            class="btn btn-primary">Submit
+                                    </button>
+                                </div>
+                            
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add this section at the end of your Thymeleaf template -->
+            <div th:if="${confirmationMessage}"
+                 class="alert alert-success text-center">
+                <p th:text="${confirmationMessage}"></p>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>

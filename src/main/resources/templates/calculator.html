@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <!--    <script src="../static/js/input.js"></script>-->
+    
+    <title>Course Grade Calculator</title>
+</head>
+<body layout:fragment="body">
+    
+    
+    <!--    Title-->
+    <div class="container"
+         style="position: sticky; top: 56px; z-index: 1000; ">
+        <section class="p-5 p-lg-0 pt-lg-5 text-sm-start">
+            <h2 class="text-center color ">Course Grade Calculator </h2>
+            <hr>
+            <!-- Additional content in the section -->
+        </section>
+    </div>
+    
+    <!--    Form-->
+    <section class="p-5 p-lg-0 pt-lg-5 ">
+        <div class="half-width-container"
+             dir="rtl">
+            <form action="#"
+                  th:action="@{/course-grade/calculator}"
+                  th:object="${assignment}"
+                  method="POST">
+                <div class="row g-3">
+                    <div class="col">
+                        <!--                        <label class="form-label">Assignment Name:</label>-->
+                        <input class="form-control"
+                               type="text"
+                               th:field="*{name}"
+                               placeholder="Assignment"
+                               required>
+                    </div>
+                    <div class="col">
+                        <!--                        <label class="form-label">Weight:</label>-->
+                        <input class="form-control"
+                               type="number"
+                               th:field="*{weight}"
+                               placeholder="Weight"
+                               required>
+                    </div>
+                    <div class="col">
+                        <!--                        <label class="form-label">Grade:</label>-->
+                        <input class="form-control"
+                               type="number"
+                               th:field="*{grade}"
+                               placeholder="Grade"
+                               required>
+                    
+                    </div>
+                    
+                    <div class="col">
+                        <button type="submit"
+                                class="btn btn-light">Add
+                        </button>
+                    </div>
+                </div>
+            
+            
+            </form>
+            
+            
+            <hr>
+        </div>
+        
+        
+        <div class="half-width-container"
+             dir="rtl">
+            <form action="#"
+                  th:action="@{/course-grade/addTest}"
+                  th:object="${coursegrade}"
+                  method="POST">
+                <div class="row g-3">
+                    <div class="col text-center">
+                        <label class="col-form-label">Test Grade</label>
+                    </div>
+                    <div class="col-6">
+                        <input class="form-control"
+                               type="number"
+                               th:field="*{testGrade}"
+                               placeholder="Test Grade"
+                               required>
+                    </div>
+                    <div class="col">
+                        <button type="submit"
+                                class="btn btn-light">Add
+                        </button>
+                    
+                    </div>
+                </div>
+            </form>
+        
+        </div>
+    
+    </section>
+    
+    <!--    Table-->
+    <section class="p-5 p-lg-0 pt-lg-5 text-center ">
+        <div class="half-width-container"
+             dir="rtl">
+            <table class="table table-striped "
+                   th:if="${!coursegrade.assignments.isEmpty()}">
+                <thead>
+                <tr>
+                    <th>Assignment Name</th>
+                    <th>Weight</th>
+                    <th>Grade</th>
+                    <th>Remove</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="tempAssignment : ${assignments}">
+                    <td class="col-3"
+                        th:text="${tempAssignment.name}"></td>
+                    <td class="col-3"
+                        th:text="${tempAssignment.weight.intValue()}"></td>
+                    <td class="col-3"
+                        th:text="${tempAssignment.grade.intValue()}"></td>
+                    <td>
+                        <a th:href="@{/course-grade/remove(id=${tempAssignment.id})}">
+                            <i class="bi bi-x-circle red-icon"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+            <!-- Display Test Grade -->
+            <br>
+            <div th:if="${coursegrade.testGrade != null}"
+                 dir="rtl">
+                <h5>
+                    Test Grade: <span th:text="${coursegrade.testGrade.intValue()}"></span>
+                </h5>
+            </div>
+        </div>
+    </section>
+    
+    <!--   Calc Button-->
+    <section class="m-5"
+             th:if="${coursegrade.testGrade != null && !coursegrade.assignments.isEmpty()}">
+        <div class="half-width-container text-center">
+            <form action="#"
+                  th:action="@{/course-grade/calc}"
+                  method="POST">
+                <button type="submit"
+                        class="btn btn-success custom-btn-width">
+                    Calculate
+                </button>
+            </form>
+        
+        </div>
+    </section>
+    
+    <!-- Display Grade -->
+    <section th:if="${coursegrade.courseFinalGrade != null}"
+             class="m-5">
+        <div class="half-width-container text-center">
+            <div>
+                <h5 class="primary">
+                    Your Final Course Grade:<span th:text="${coursegrade.courseFinalGrade}"></span>
+                </h5>
+            </div>
+        </div>
+    </section>
+    
+    <!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>-->
+    <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"-->
+    <!--            integrity="sha384-xRtP9ZHvRyzy0fzzy2ndszHg5Hz6qzA7qz8c7nF4L1Fh9SKC2dJEdD0xI4TEtW2S"-->
+    <!--            crossorigin="anonymous"></script>-->
+    <script>
+        // You can add your form submission logic here
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Add your form submission logic here
+        });
+    </script>
+
+</body>
+</html>

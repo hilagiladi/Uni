@@ -1,0 +1,754 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body::before {
+    display: block;
+    content: '';
+    height: 60px;
+}
+
+
+:root {
+    --primary-color: #9a0f0f;
+    /*--primary-color: #4891ff;*/
+    --light-color: #f4f4f6;
+    /*--light-color: #6d6d9a;*/
+    --dark-color: #111;
+    --white-color: #fff;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background: #fff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Navbar */
+.navbar {
+    background: #fff;
+    padding: 20px;
+    position: fixed; /* Add this line to make the navbar fixed */
+    top: 0; /* Add this line to position the navbar at the top of the page */
+    width: 100%; /* Add this line to make the navbar span the full width of the page */
+    z-index: 1000; /* Add this line to ensure the navbar appears above other elements */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo h2 {
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+.navbar .logo img {
+    width: 50px;
+}
+
+.navbar .main-menu ul {
+    display: flex;
+    
+}
+
+.navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover {
+    color: var(--primary-color);
+}
+
+.navbar ul li a i {
+    margin-right: 10px;
+    vertical-align: middle; /* Add this line to vertically align the icon */
+    
+}
+
+.navbar ul li:last-child a {
+    margin-left: 10px;
+}
+
+/*Style for the dropdown menu
+.navbar .navbar-link {
+    position: relative;
+    /*display: inline-block;
+}
+
+.navbar .dropdown-menu {
+    display: none;
+    position: absolute;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    width: 100%; /* Set the width to 100% to match the width of the navbar-link
+    max-width: 160px; /* Set a minimum width if needed
+    
+}
+
+.navbar .dropdown-item {
+    display: block;
+    align-items: center;
+    padding: 13px 20px;
+    
+}
+
+.navbar .dropdown-menu .dropdown-divider {
+    height: 1px;
+    overflow: hidden;
+    background-color: #ccc; /* Adjust color as needed
+}*/
+
+/* Use the custom properties in your CSS */
+#user-button {
+    --button-width: auto;
+    --button-height: auto;
+    width: var(--button-width);
+    height: var(--button-height);
+}
+
+#user-button:hover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transition: border-radius 0ms;
+}
+
+.navbar .sub-menu {
+    display: none;
+}
+
+.navbar .navbar-menu:hover .sub-menu {
+    display: block;
+    position: absolute;
+}
+
+.navbar .navbar-menu:hover .sub-menu ul {
+    display: block;
+    margin-left: 10px;
+    position: relative;
+}
+
+.navbar .navbar-menu:hover .sub-menu ul li {
+    background: var(--light-color);
+    text-align: center;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    width: var(--button-width);
+    
+}
+
+.navbar .navbar-menu .sub-menu ul li:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Show the dropdown menu on hover
+.navbar .navbar-link:hover .dropdown-menu,
+.navbar .dropdown-menu:hover {
+    display: block;
+}
+.navbar .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /*right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+}
+/* Adjusted position to align with the navbar-link
+.navbar .dropdown-menu:before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust this value to fine-tune the alignment
+    right: 0;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff; /* Adjust color as needed
+}
+.navbar .dropdown-item {
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+.navbar .dropdown-menu .dropdown-divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #ccc; /* Adjust color as needed
+}
+/* Show the dropdown menu on hover
+.navbar .navbar-link:hover .dropdown-menu {
+    display: block;
+}
+
+*/
+/* Hero */
+.hero {
+    margin-bottom: 50px;
+    padding-top: 30px; /* Add this line to provide space for the fixed navbar */
+    
+}
+
+.hero .container {
+    background: url('../images/red-hats-students1.png') no-repeat;
+    background-size: 400px;
+    background-position: center bottom;
+    height: 550px;
+}
+
+.hero .hero-content {
+    width: 70%;
+}
+
+.hero .hero-text {
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+/* Video */
+.video {
+    padding: 10px 0 40px;
+}
+
+.video .video-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.video .video-preview {
+    margin-bottom: 20px;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 40px 0;
+}
+
+.testimonials .testimonials-heading {
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.testimonials .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.testimonials .card p:nth-child(2) {
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* Pricing */
+.pricing .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.pricing .pricing-card-subheading {
+    margin-bottom: 30px;
+}
+
+.pricing .pricing-card-price {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.pricing ul {
+    margin: 30px 0;
+}
+
+.pricing ul li {
+    margin-bottom: 20px;
+}
+
+.pricing ul li i {
+    margin-right: 10px;
+}
+
+.pricing .pricing-footer {
+    margin: 30px 0;
+}
+
+/* FAQ */
+.faq {
+    padding: 40px 0;
+}
+
+.faq .faq-group {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.faq .faq-group .faq-group-header {
+    padding: 20px 0;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.faq .faq-group .faq-group-header h4 {
+    font-weight: 600;
+    width: 95%;
+}
+
+.faq .faq-group .faq-group-header i {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.faq .faq-group .faq-group-body {
+    display: none;
+}
+
+.faq .faq-group .faq-group-body.open {
+    display: block;
+}
+
+.faq ul.faq-menu {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ddd;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.faq ul.faq-menu li {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.faq ul.faq-menu li.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    padding: 40px 0;
+    /*display: flex;*/
+    /*justify-content: center; !* Adjusted to space between elements *!*/
+    /*align-items: center;*/
+    /*flex-direction: column;*/
+    /*position: relative;*/
+    text-align: center;
+    position: relative;
+}
+
+/*.footer .container {*/
+/*    display: flex;*/
+/*    justify-content: center; !* Align items to the right and left *!*/
+/*    align-items: center;*/
+/*    width: 100%; !* Ensure the container takes up the full width *!*/
+/*    */
+/*}*/
+
+/*.footer .footer-logo {*/
+/*    display: flex;*/
+/*    !*justify-content: flex-end; !* Align items to the right *!*!*/
+/*    align-items: center;*/
+/*}*/
+
+.footer p {
+    /*padding-left: 10px;*/
+    display: inline-block;
+    margin: 0;
+    padding: 0 5px;
+    vertical-align: middle;
+}
+
+.footer img {
+    width: 40px;
+    /*margin-right: 10px; !* Add margin to separate image and text *!*/
+    vertical-align: middle;
+    
+}
+
+.footer .arrow {
+    font-size: 40px;
+    /*margin-left: 250px; !* Adjust the margin to your preference *!*/
+    position: absolute;
+    color: var(--primary-color);
+    /*margin-left: auto;*/
+    /*padding: 5px;*/
+    /*align-content: end;*/
+    /*padding-left: 90px;*/
+    right: 50px; /* Adjust the right position as needed */
+    /*bottom: 20px; !* Adjust the bottom position as needed *!*/
+    /*text-decoration: none; !* Add this line to remove the default underline *!*/
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.footer .arrow:hover {
+    color: black;
+    opacity: 0.8;
+    transition: 0.5s;
+    
+}
+
+/*
+.footer ul li {
+    line-height: 2.5;
+}
+
+.footer a {
+    color: #ccc;
+}
+
+.footer i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .card {
+    margin: 20px 30px 30px 0;
+}
+
+.footer input[type='email'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+*/
+/* Utility Classes */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container-sm {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.container-xsm {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 3px;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.card .card-title {
+    text-align: center;
+}
+
+.card .card-icon {
+    font-size: 50px;
+    margin: 20px;
+}
+
+.card img {
+    width: 50px;
+    margin: 20px;
+    
+}
+
+.card .telegram {
+    color: #4895f9;
+}
+
+.card .whatsApp {
+    color: #28a626;
+}
+
+.card .facebook {
+    color: #2c74f2;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 13px 20px;
+    background: var(--light-color);
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-dark {
+    background: var(--dark-color);
+    color: #fff;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Text Classes */
+.text-xxl {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 40px 0 20px;
+}
+
+.text-xl {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 40px 0 20px;
+}
+
+.text-lg {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 30px 0 20px;
+}
+
+.text-md {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 20px 0 10px;
+}
+
+.text-sm {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 10px 0 5px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Background */
+.bg-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.bg-light {
+    background: var(--light-color);
+    color: #333;
+}
+
+.bg-dark {
+    background: var(--dark-color);
+    color: #fff;
+}
+
+.bg-black {
+    background: #000;
+    color: #fff;
+}
+
+.bg-white {
+    background: var(--white-color);
+    color: #333;
+}
+
+/* Hamburger Button */
+.hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.hamburger-button .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background: #333;
+    margin: 6px 0;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    z-index: 100;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu ul {
+    margin-top: 100px;
+    padding-right: 10px;
+}
+
+.mobile-menu ul li {
+    margin: 10px 0;
+}
+
+.mobile-menu ul li a {
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+/* Media Queries */
+@media (max-width: 960px) {
+    .text-xxl {
+        font-size: 2.5rem;
+    }
+    
+    .navbar ul li a {
+        padding: 10px 10px;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .navbar .main-menu {
+        display: none;
+    }
+    
+    .navbar .hamburger-button {
+        display: block;
+    }
+    
+    .hero .container {
+        background: url('../images/hero-bg-mobile.png') no-repeat;
+        background-size: 350px 400px;
+        background-position: bottom;
+        height: 770px;
+    }
+    
+    .hero .hero-content,
+    .hero .hero-text {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .hero .hero-buttons .btn {
+        margin-bottom: 10px;
+        display: block;
+        width: 100%;
+    }
+    
+    .testimonials .testimonials-heading {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .testimonials .testimonials-grid,
+    .pricing .pricing-grid,
+    .footer .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer .card {
+        margin-right: 0;
+    }
+    
+    .footer .footer-grid > div {
+        text-align: center;
+    }
+    
+    /* Text */
+    .text-xl {
+        font-size: 1.9rem;
+    }
+    
+    .text-lg {
+        font-size: 1.5rem;
+    }
+    
+    .text-md {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .text-xxl {
+        font-size: 2rem;
+    }
+}

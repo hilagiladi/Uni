@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link th:href="@{/css/style.css}"
+          rel="stylesheet">
+    <link th:href="@{/images/logo-icon2.png}"
+          rel="shortcut icon"
+          type="image/x-icon" />
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap"
+          rel="stylesheet">
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+    
+    <script src="/js/main.js"></script>
+    
+    
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE"></title>
+</head>
+<body>
+    
+    <!--      Navbar-->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a th:href="@{/}"><img th:src="@{/images/logo-icon2.png}"
+                                       alt="logo"
+                /></a>
+                <a th:href="@{/}"><h2>Uni Web</h2></a>
+            </div>
+            
+            <div class="main-menu navbar-menu">
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/courses/list}">Courses</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/course-grade/calculator}">Calculators</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/#questions}">FAQ</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/contact}">Contact</a>
+                    </li>
+                    
+                    <!--                    old -->
+                    <!--                    <li>-->
+                    <!--                        <a class="btn"-->
+                    <!--                           href="#"> <i class="fas fa-user"></i> Log In </a>-->
+                    <!--                    </li>-->
+                    
+                    <!-- Check if the user is authenticated -->
+                    <li th:if="${#authorization.expression('isAuthenticated()')}">
+                        <a id="user-button"
+                           class="btn"
+                           href="javascript:void(0)">
+                            Hello, <span th:text="${#authentication.principal.username}"></span>
+                        </a>
+                        <div class="sub-menu">
+                            <ul>
+                                <li>
+                                    <a th:href="@{/user/profile}">Profile</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/user/profile}">Setting</a>
+                                </li>
+                                <li>
+                                    <a th:href="@{/user/profile}">Logout</a>
+                                </li>
+                                <!--                                <li>-->
+                                <!--                                    <form action="#"-->
+                                <!--                                          th:action="@{/logout}"-->
+                                <!--                                          method="POST">-->
+                                <!--                                        <label>Logout</label>-->
+                                <!--                                    </form>-->
+                                <!--                                </li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li th:unless="${#authorization.expression('isAuthenticated()')}"
+                        class="nav-item">
+                        <a th:href="@{/showMyLoginPage}"
+                           class="btn"><i class="fas fa-user"></i> Log In</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Hamburger Button -->
+            <button class="hamburger-button">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+            <div class="mobile-menu">
+                <ul>
+                    <li>
+                        <a th:href="@{/}">Home</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/courses/list}">Courses</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/course-grade/calculator}">Calculators</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/#questions}">FAQ</a>
+                    </li>
+                    <li>
+                        <a th:href="@{/contact}">Contact</a>
+                    </li>
+                    <li>
+                        <a class="btn"
+                           href="#"> <i class="fas fa-user"></i> Log In </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Content Section -->
+    <section layout:fragment="body">
+        <p>This is filled by the content template.</p>
+    </section>
+    
+    
+    <footer class="footer">
+        <img th:src="@{/images/logo-icon2.png}"
+             alt="Logo">
+        <p>Uni Web Copyright &copy; 2024</p>
+        <i class="arrow fa-solid fa-circle-chevron-up"
+           onclick="scrollToTop()"></i>
+    </footer>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js"
+            integrity="sha384-xRtP9ZHvRyzy0fzzy2ndszHg5Hz6qzA7qz8c7nF4L1Fh9SKC2dJEdD0xI4TEtW2S"
+            crossorigin="anonymous"></script>
+
+</body>
+</html>

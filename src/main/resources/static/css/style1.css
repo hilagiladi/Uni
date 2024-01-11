@@ -1,0 +1,70 @@
+/** {*/
+/*    */
+/*    font-family: 'Poppins', sans-serif;*/
+/*}*/
+
+/*body::before {*/
+/*    display: block;*/
+/*    content: '';*/
+/*    height: 60px;*/
+/*}*/
+
+/*.nav-links ul li::after {*/
+/*    content: '';*/
+/*    width: 0%;*/
+/*    height: 2px;*/
+/*    background: darkred;*/
+/*    display: block;*/
+/*    margin: auto;*/
+/*    transition: 0.5s;*/
+/*}*/
+
+/*.nav-links ul li:hover::after {*/
+/*    width: 100%;*/
+/*    */
+/*}*/
+
+/* Add padding to the DataTable search bar */
+/*div.dataTables_wrapper div.dataTables_filter input {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/* Custom CSS */
+/*.half-width-container {*/
+/*    max-width: 30%;*/
+/*    margin-right: auto;*/
+/*    margin-left: auto;*/
+/*}*/
+
+/*.contact-container {*/
+/*    max-width: 100%;*/
+/*    padding: 0 15px; !* Add some padding for small screens *!*/
+/*    margin-right: auto;*/
+/*    margin-left: auto;*/
+/*    margin-top: auto;*/
+/*}*/
+
+/* Custom CSS to make the button wider */
+/*.custom-btn-width {*/
+/*    width: 100%;*/
+/*    max-width: 200px; !* Adjust the max-width based on your preference *!*/
+/*}*/
+
+/*.color {*/
+/*    color: #7c1f1f;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*thead tr th {*/
+/*    position: sticky;*/
+/*    top: 0;*/
+/*    z-index: 1;*/
+/*    background-color: white; !* Optional: match background *!*/
+/*}*/
+
+
+/*@media (min-width: 768px) {*/
+/*    .news-input {*/
+/*        width: 50%;*/
+/*    }*/
+/*}*/

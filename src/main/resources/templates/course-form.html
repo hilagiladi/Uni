@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Save Course</title>
+</head>
+
+<body layout:fragment="body">
+    <div dir="rtl"
+         class="container">
+        <h3>Employee Directory</h3>
+        <hr>
+        
+        <p class="h4 mb-4">הוספת קורס</p>
+        
+        <form action="#"
+              th:action="@{/courses/save}"
+              th:object="${courses}"
+              method="POST">
+            
+            
+            <!-- Add a hidden form field to handle the update - this tells the app which employee to update-->
+            <input type="hidden"
+                   th:field="*{id}">
+            
+            <div class="mb-3">
+                <label for="courseNum"
+                       class="form-label"> מספר קורס:</label>
+                <input type="number"
+                       min="1"
+                       id="courseNum"
+                       th:field="*{courseNum}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            
+            <div class="mb-3">
+                <label for="courseTitle"
+                       class="form-label">שם הקורס:</label>
+                <input type="text"
+                       id="courseTitle"
+                       th:field="*{courseTitle}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="regularCredits"
+                       class="form-label">נקודות רגילות:</label>
+                <input type="number"
+                       id="regularCredits"
+                       th:field="*{regularCredits}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="advanceCredits"
+                       class="form-label">נקודות מתקדמות:</label>
+                <input type="number"
+                       id="advanceCredits"
+                       th:field="*{advanceCredits}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="advancedSeminaryCredits"
+                       class="form-label">נקודות סמינריוניות:</label>
+                <input type="number"
+                       id="advancedSeminaryCredits"
+                       th:field="*{advancedSeminaryCredits}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="secondDegreeCredits"
+                       class="form-label">נקודות תואר שני:</label>
+                <input type="number"
+                       id="secondDegreeCredits"
+                       th:field="*{secondDegreeCredits}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox"
+                       id="offeredInFallSemester"
+                       th:field="*{offeredInFallSemester}"
+                       class="form-check-input">
+                <label for="offeredInFallSemester"
+                       class="form-check-label">מוצע בסמסטר א</label>
+            </div>
+            
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox"
+                       id="offeredInSpringSemester"
+                       th:field="*{offeredInSpringSemester}"
+                       class="form-check-input">
+                <label for="offeredInSpringSemester"
+                       class="form-check-label">מוצע בסמסטר ב</label>
+            </div>
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox"
+                       id="offeredInSummerSemester"
+                       th:field="*{offeredInSummerSemester}"
+                       class="form-check-input">
+                <label for="offeredInSummerSemester"
+                       class="form-check-label">מוצע בסמסטר ג</label>
+            </div>
+            
+            <div class="mb-3">
+                <label for="association1"
+                       class="form-label">שיוך 1:</label>
+                <input type="text"
+                       id="association1"
+                       th:field="*{association1}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="association2"
+                       class="form-label">שיוך 2:</label>
+                <input type="text"
+                       id="association2"
+                       th:field="*{association2}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="association3"
+                       class="form-label">שיוך 3:</label>
+                <input type="text"
+                       id="association3"
+                       th:field="*{association3}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3 form-check">
+                <input type="checkbox"
+                       id="available"
+                       th:field="*{available}"
+                       class="form-check-input">
+                <label for="available"
+                       class="form-check-label">פעיל</label>
+            </div>
+            
+            <div class="mb-3">
+                <label for="level1"
+                       class="form-label">רמה 1:</label>
+                <input type="text"
+                       id="level1"
+                       th:field="*{level1}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            <div class="mb-3">
+                <label for="level2"
+                       class="form-label">רמה 2:</label>
+                <input type="text"
+                       id="level2"
+                       th:field="*{level2}"
+                       class="form-control"
+                       style="width: 30%;">
+            </div>
+            
+            
+            <button type="submit"
+                    class="btn btn-info col-2">Save
+            </button>
+        
+        
+        </form>
+        
+        <hr>
+        <a th:href="@{/courses/list}">Back to Courses List</a>
+    </div>
+
+</body>
+
+</html>

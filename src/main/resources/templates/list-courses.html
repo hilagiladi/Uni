@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>Courses</title>
+    
+    <!-- Add DataTables CSS -->
+    <link rel="stylesheet"
+          type="text/css"
+          href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    
+    <!-- Add jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Add DataTables JavaScript -->
+    <script type="text/javascript"
+            charset="utf8"
+            src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+</head>
+
+<body layout:fragment="body">
+    
+    <div class="container"
+         style="position: sticky; top: 56px; z-index: 1000; background-color: white;">
+        <section class="p-5 p-lg-0 pt-lg-5 text-sm-start">
+            <h2 class="text-center"> Computer Science Courses:</h2>
+            <p class="lead text-center">
+            
+            </p>
+            <hr>
+            <!-- Additional content in the section -->
+        </section>
+    </div>
+    
+    
+    <section class="p-5 p-lg-0 pt-lg-5 text-sm-start ">
+        <div class="container text-end">
+            <a th:href="@{/courses/showFormForAdd}"
+               class="btn btn-primary btn-sm mb-3">
+                Add Course
+            </a>
+        </div>
+        <div class="container"
+             dir="rtl">
+            <table class="table table-striped text-center"
+                   id="coursesTable">
+                <thead class="table-dark">
+                <tr>
+                    <th>Course Number</th>
+                    <th>Course Name</th>
+                    <th>Credits</th>
+                    <th>Level</th>
+                    <th>Semesters Offered</th>
+                    <th>Link</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                
+                <tbody>
+                <tr th:each="tempCourse : ${courses}">
+                    <td th:text="${tempCourse.courseNum}" />
+                    <td th:text="${tempCourse.courseTitle}" />
+                    <td th:text="${tempCourse.getCourseTotalCredits()}" />
+                    <td th:text="${tempCourse.level()}" />
+                    <td th:text="${tempCourse.offeredInSemesters()}" />
+                    <td>
+                        <a th:href="${tempCourse.link}"
+                           target="_blank">
+                            View Details
+                        </a>
+                    </td>
+                    <td>
+                        <!-- We save the id to prepopulate the form-->
+                        <a th:href="@{/courses/showFormForUpdate(id=${tempCourse.id})}"
+                           class="btn btn-info btn-sm">
+                            Update
+                        </a>
+                    </td>
+                
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    
+    <script>
+        $(document).ready(function () {
+            $('#coursesTable').DataTable({
+                "pageLength": 25,
+                "language": {
+                    "search": "search by course number/course name:"
+                },
+                "fixedHeader": true
+            });
+        });
+    </script>
+
+
+</body>
+</html>
